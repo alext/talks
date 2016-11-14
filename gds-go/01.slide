@@ -1,7 +1,9 @@
 GDS Go Workshop #1
 15:30 24 Nov 2016
 
-Tim Blair & Alex Tomlins
+Tim Blair
+
+Alex Tomlins
 
 * Agenda
 
@@ -40,8 +42,6 @@ Package documentation can be found at [[https://godoc.org/net/http]] etc
 
 * Exercise - Latency as a Service
 
-Requirements:
-
 - GET `/latency` - returns the string "OK" after 500ms
 - GET `/latency?duration=100ms` - override the default delay duration. The value can be any string accepted by `time.ParseDuration`.
 - An invalid duration parameter should return a 400 along with an error message.
@@ -54,7 +54,24 @@ Stretch goals:
 
 * JSON package intro
 
-TODO
+Marshalling a scruct to JSON:
+
+.play 01/json1.go /START OMIT/,/END OMIT/
+
+* JSON package intro
+
+More control of JSON output
+
+.play 01/json2.go /START OMIT/,/END OMIT/
+
+* JSON package intro
+
+For more details:
+
+- package docs - [[https://godoc.org/encoding/json]]
+- [[https://blog.golang.org/json-and-go]]
+- [[https://eager.io/blog/go-and-json/]]
+- [[https://gobyexample.com/json]]
 
 * Exercise - Dice as a Service
 
@@ -67,6 +84,11 @@ TODO
 Stretch goals:
 
 - Write a separate command line client for accessing your service.
+
+Useful packages:
+
+- `encoding/json`
+- `math/rand`
 
 * End
 

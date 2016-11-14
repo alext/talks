@@ -1,0 +1,73 @@
+GDS Go Workshop #1
+15:30 24 Nov 2016
+
+Tim Blair & Alex Tomlins
+
+* Agenda
+
+- Introduction
+- Quick syntax (hello world)
+- Write some code
+
+* Introduction
+
+TODO... Scope of workshop etc.
+
+* Hello world
+
+.play 01/hello.go
+
+* Hello world (with added test)
+
+.code 01/hello/hello.go /START OMIT/,/END OMIT/
+
+.code 01/hello/hello_test.go
+
+* Exercise
+
+.image 01/tweet.png
+
+* Exercise - Latency as a Service
+
+We're going to build a microservice to provide latency.
+
+Stdlib packages that will be useful:
+
+- net/http (start with the `ListenAndServe` function)
+- time
+
+Package documentation can be found at [[https://godoc.org/net/http]] etc
+
+* Exercise - Latency as a Service
+
+Requirements:
+
+- GET `/latency` - returns the string "OK" after 500ms
+- GET `/latency?duration=100ms` - override the default delay duration. The value can be any string accepted by `time.ParseDuration`.
+- An invalid duration parameter should return a 400 along with an error message.
+
+For this exercise, stick to the standard library.
+
+Stretch goals:
+
+- Add tests
+
+* JSON package intro
+
+TODO
+
+* Exercise - Dice as a Service
+
+- GET `/roll` generates a random roll from a D6 die.
+- GET `/roll?die=D<N>` (where N is a positive integer)
+- Both calls return JSON including the die type, and the random roll from the die.
+- Invalid parameters return a 400 and suitable JSON encoded error message.
+- It should have tests
+
+Stretch goals:
+
+- Write a separate command line client for accessing your service.
+
+* End
+
+What should we cover next time?

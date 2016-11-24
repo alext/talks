@@ -5,15 +5,12 @@ Tim Blair
 
 Alex Tomlins
 
-* Agenda
-
-- Introduction
-- Quick syntax (hello world)
-- Write some code
-
 * Introduction
 
-TODO... Scope of workshop etc.
+Aim of this workshop:
+
+A chance for people to work through some problems together and learn from each
+other.
 
 * Hello world
 
@@ -40,13 +37,13 @@ Stdlib packages that will be useful:
 
 Package documentation can be found at [[https://godoc.org/net/http]] etc
 
+We've put together a quick cheatsheet here: [[http://bit.ly/gds-go1]]
+
 * Exercise - Latency as a Service
 
 - GET `/latency` - returns the string "OK" after 500ms
 - GET `/latency?duration=100ms` - override the default delay duration. The value can be any string accepted by `time.ParseDuration`.
 - An invalid duration parameter should return a 400 along with an error message.
-
-For this exercise, stick to the standard library.
 
 Stretch goals:
 
@@ -54,7 +51,7 @@ Stretch goals:
 
 * JSON package intro
 
-Marshalling a scruct to JSON:
+Marshalling a struct to JSON:
 
 .play 01/json1.go /START OMIT/,/END OMIT/
 
@@ -73,6 +70,8 @@ For more details:
 - [[https://eager.io/blog/go-and-json/]]
 - [[https://gobyexample.com/json]]
 
+Links are also included at the bottom of the cheatsheet ([[http://bit.ly/gds-go1]])
+
 * Exercise - Dice as a Service
 
 - GET `/roll` generates a random roll from a D6 die.
@@ -84,6 +83,7 @@ For more details:
 Stretch goals:
 
 - Write a separate command line client for accessing your service.
+- Allow a user to pass multiple dice and roll them all.
 
 Useful packages:
 

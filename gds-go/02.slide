@@ -84,7 +84,9 @@ To give it a real workout, increase the byte count from the `head` call, or drop
 
 * Homework: gzip
 
-Implement the `gzip` command line tool in Go.  The algorithm itself is already implemented in the `compress/gzip` standard library package: you just need to wire up the input and output.
+Implement the `gzip` and/or `gunzip` command line tool in Go.  The algorithm itself is already implemented in the `compress/gzip` standard library package: you need to wire up the input and output.
+
+Start by implementing a version that reads from `STDIN`, and outputs to `STDOUT`. Once that's working you can extend it to read/write from files etc.
 
 * The End
 

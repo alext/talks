@@ -1,0 +1,75 @@
+GDS Go Workshop #2
+I ... O ... Let's Go!
+14:30 2 Feb 2017
+
+* Introduction
+
+These workshops are a chance for people to work through some problems together
+and learn from each other.
+
+Today: a little bit of IO.
+
+* Hello World Recap
+
+.code 02/hello.go /START OMIT/,/END OMIT/
+
+.code 02/hello_test.go /START OMIT/,/END OMIT/
+
+* I0
+
+Go is a programming language built for working with bytes, and the two fundamental operations are reading and writing.
+
+The basic construct for reading bytes from a stream is the Reader interface:
+
+  type Reader interface {
+      Read(p []byte) (n int, err error)
+  }
+
+This interface is implemented throughout the standard library by everything from network connections to files to wrappers for in-memory slices.
+
+* Easier Input
+
+The [[https://golang.org/pkg/bufio/#Scanner][`bufio` package]] includes a lot of functionality that simplifies the THINGS
+
+  scanner := bufio.NewScanner(os.Stdin)
+  
+  for scanner.Scan() {
+      fmt.Println(scanner.Text())
+  }
+  
+  if err := scanner.Err(); err != nil {
+      fmt.Fprintln(os.Stderr, "Error reading STDIN:", err)
+  }
+
+* Exercise 1: ROT13
+
+Read a complete string from standard input, and write back out the string to standard out with all alpha characters having the [[https://en.wikipedia.org/wiki/ROT13][ROT13 substitution cipher]] applied.
+
+.image https://upload.wikimedia.org/wikipedia/commons/3/33/ROT13_table_with_example.svg
+
+  $ echo "hello world" | ./rot13
+  uryyb jbeyq
+
+If you're feel adventurous, try altering your code to read from and write to separate files, instead of using STDIN and STDOUT.
+
+* Exercise 2: Streaming Addition
+
+Read a stream of ASCII characters (including whitespace and newlines) from standard input, extract just the numeric values, add together the current number and the two previous ones, apply modulo 10, then output the resulting digit on standard out.
+
+.image 02/exercise-2.png
+
+  $ echo "a1bCd 23EF 4 567qwerty8x9" | ./add
+  6925814
+  
+  $ cat /dev/urandom | LC_CTYPE=C tr -dc '0-9a-zA-Z \n' | head -c 100 | ./add
+  ...
+
+To give it a real workout, increase the byte count from the `head` call, or drop that call entirely for a never-ending stream.
+
+* Homework: gzip
+
+Implement the `gzip` command line tool in Go.  The algorithm itself is already implemented in the `compress/gzip` standard library package: you just need to wire up the input and output.
+
+* The End
+
+What should we cover next time?

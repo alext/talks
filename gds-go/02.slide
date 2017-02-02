@@ -49,6 +49,14 @@ For example `bufio.Reader` wraps an `io.Reader` and adds several helpful methods
 
 .play 02/reader2/reader.go /START OMIT/,/END OMIT/
 
+* Easier Input (Words)
+
+The [[https://golang.org/pkg/bufio/#Reader][`bufio` package]] includes a lot of functionality that simplifies the THINGS
+
+For example `bufio.Reader` wraps an `io.Reader` and adds several helpful methods:
+
+.play 02/reader3/reader.go /START OMIT/,/END OMIT/
+
 * Exercise 1: ROT13
 
 Read a complete string from standard input, and write back out the string to standard out with all alpha characters having the [[https://en.wikipedia.org/wiki/ROT13][ROT13 substitution cipher]] applied.

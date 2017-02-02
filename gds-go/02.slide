@@ -15,31 +15,39 @@ Today: a little bit of IO.
 
 .code 02/hello_test.go /START OMIT/,/END OMIT/
 
-* I0
+* IO
 
-Go is a programming language built for working with bytes, and the two fundamental operations are reading and writing.
+Go's IO handling is built for working with bytes, and the two fundamental operations are reading and writing.
 
-The basic construct for reading bytes from a stream is the Reader interface:
+The basic construct for reading bytes from a stream is the `io.Reader` interface:
 
   type Reader interface {
       Read(p []byte) (n int, err error)
+  }
+
+and for writing to a stream is the `io.Writer` interface:
+
+  type Writer interface {
+      Write(p []byte) (n int, err error)
   }
 
 This interface is implemented throughout the standard library by everything from network connections to files to wrappers for in-memory slices.
 
 * Easier Input
 
-The [[https://golang.org/pkg/bufio/#Scanner][`bufio` package]] includes a lot of functionality that simplifies the THINGS
+The [[https://golang.org/pkg/bufio/#Reader][`bufio` package]] includes a lot of functionality that simplifies the THINGS
 
-  scanner := bufio.NewScanner(os.Stdin)
-  
-  for scanner.Scan() {
-      fmt.Println(scanner.Text())
-  }
-  
-  if err := scanner.Err(); err != nil {
-      fmt.Fprintln(os.Stderr, "Error reading STDIN:", err)
-  }
+For example `bufio.Reader` wraps an `io.Reader` and adds several helpful methods:
+
+.play 02/reader1/reader.go /START OMIT/,/END OMIT/
+
+* Easier Input (Runes)
+
+The [[https://golang.org/pkg/bufio/#Reader][`bufio` package]] includes a lot of functionality that simplifies the THINGS
+
+For example `bufio.Reader` wraps an `io.Reader` and adds several helpful methods:
+
+.play 02/reader2/reader.go /START OMIT/,/END OMIT/
 
 * Exercise 1: ROT13
 

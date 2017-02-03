@@ -1,5 +1,5 @@
 GDS Go Workshop #2
-I ... O ... Let's Go!
+I... O... Let's Go!
 14:30 2 Feb 2017
 
 * Introduction
@@ -31,7 +31,7 @@ and for writing to a stream is the `io.Writer` interface:
       Write(p []byte) (n int, err error)
   }
 
-This interface is implemented throughout the standard library by everything from network connections to files to wrappers for in-memory slices.
+These interfaces are implemented throughout the standard library by everything from network connections to files to wrappers for in-memory slices.
 
 * Easier Input
 
@@ -91,3 +91,6 @@ Start by implementing a version that reads from `STDIN`, and outputs to `STDOUT`
 * The End
 
 What should we cover next time?
+
+
+If you're not subscribed to http://golangweekly.com/ it's highly recommended.
